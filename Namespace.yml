@@ -173,5 +173,5 @@ spec:
       volumes:
       - name: mypd
         persistentVolumeClaim:
-          claimName: “ ”
+          claimName: ' '
 
