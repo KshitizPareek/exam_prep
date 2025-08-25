@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: autoscale
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sound-repeater
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: relative-fawn
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: spline-reticulator
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: priority
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mariadb
