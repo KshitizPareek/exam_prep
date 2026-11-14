@@ -38,7 +38,30 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: mariadb
-
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: apache-server
+  name: apache-server
+  namespace: autoscale
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apache-server
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: apache-server
+    spec:
+      containers:
+      - image: httpd:latest
+        name: httpd
+        resources: {}
+status: {}
 ---
 apiVersion: apps/v1
 kind: Deployment
