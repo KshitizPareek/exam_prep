@@ -42,26 +42,27 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: apache-server
   name: apache-server
   namespace: autoscale
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: apache-server
-  strategy: {}
+      run: apache-server
   template:
     metadata:
       labels:
-        app: apache-server
+        run: apache-server
     spec:
       containers:
-      - image: httpd:latest
-        name: httpd
-        resources: {}
-status: {}
+      - name: apache-server
+        image: httpd:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
 ---
 apiVersion: apps/v1
 kind: Deployment
