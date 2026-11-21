@@ -170,6 +170,21 @@ spec:
       - name: logging
         image: busybox-image
 ---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mariadb
+spec:
+  capacity:
+    storage: 250Mi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  hostPath:
+    path: /mnt/data
+    type: DirectoryOrCreate
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
